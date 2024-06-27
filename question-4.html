@@ -1,0 +1,25 @@
+! <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>question 4</title>
+</head>
+<body>
+    <script>
+
+let country = 'https://restcountries.com/v3.1/all';
+fetch(country)
+  .then(response => response.json())
+  .then(data => {
+    let totalPopulation = data.reduce((sum, country) => {
+      return sum + country.population;
+    }, 0);
+    console.log(`Total Population: ${totalPopulation}`);
+  })
+  .catch(error => {
+    console.error('Error fetching data:', error);
+  });
+
+    </script>
+</body>
+</html>

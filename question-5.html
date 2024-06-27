@@ -1,0 +1,28 @@
+! <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>question-5</title>
+</head>
+<body>
+    <script>
+    
+let country = 'https://restcountries.com/v3.1/all';
+fetch(country)
+  .then(response => response.json())
+  .then(data => {
+    let usdCountries = data.filter(country => {
+      return country.currencies && country.currencies.USD;
+    });
+    console.log('Countries that use US dollars (USD) as currency:');
+    usdCountries.forEach(country => {
+      console.log(country.name.common);
+    });
+  })
+  .catch(error => {
+    console.error('Error fetching data:', error);
+  });
+
+    </script>
+</body>
+</html>
